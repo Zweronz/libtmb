@@ -43,6 +43,7 @@
 *.pdb
 
 # Kernel Module Compile Results
+*.bat
 *.mod*
 *.cmd
 .tmp_versions/
@@ -50,3 +51,7 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+*.TEX
+*.RTX
+dumps/

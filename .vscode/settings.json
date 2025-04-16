@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        ".fantomasignore": "ignore",
+        "stdio.h": "c",
+        "stb_image_write.h": "c"
+    }
+}
