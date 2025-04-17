@@ -216,7 +216,7 @@ void export_texm(TEXMRes* res, TEXM* texm, char* path)
         uint8_t format;
 
         TEXMTexture tex = texm->textures[i];
-        TEXMResTexture resTex = res->textures[i + 14];
+        TEXMResTexture resTex = res->textures[i];
 
         _Bool skip = 0;
 
