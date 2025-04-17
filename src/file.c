@@ -33,3 +33,12 @@ void file_read(void* buf, size_t len, File* file)
     memcpy(buf, file->buf + file->pos, len);
     file->pos += len;
 }
+
+void create_directory(char* path)
+{
+#ifdef _WIN32
+    _mkdir(path);
+#else
+    mkdir(path, S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
+#endif
+}

@@ -111,13 +111,13 @@ TEXM* load_texm(char* path)
         uint32_t textureSize = header.textureSize == 0 ? 0 : ((header.textureSize << 2) - 128);
         uint32_t textureEstimatedSize = (1 << width) * (1 << height);
 
-        _Bool isLastEntry = 0;
+        bool isLastEntry = false;
         
         /* 0 size marks end of file */
         if (textureSize == 0)
         {
             textureSize = file->size - file->pos;
-            isLastEntry = 1;
+            isLastEntry = true;
         }
 
         /* 'estimations' are done until I can be 100% sure the sizes never mismatch
@@ -208,7 +208,7 @@ TEXM* load_texm(char* path)
 void export_texm(TEXMRes* res, TEXM* texm, char* path)
 {
     stbi_flip_vertically_on_write(1);
-    //printf("%u %u\n", texm->numTextures, res->numTextures);
+    printf("%u %u\n", texm->numTextures, res->numTextures);
 
     for (int i = 0; i < texm->numTextures; i++)
     {
@@ -216,7 +216,7 @@ void export_texm(TEXMRes* res, TEXM* texm, char* path)
         uint8_t format;
 
         TEXMTexture tex = texm->textures[i];
-        TEXMResTexture resTex = res->textures[i];
+        TEXMResTexture resTex = res->textures[i + 14];
 
         _Bool skip = 0;
 
